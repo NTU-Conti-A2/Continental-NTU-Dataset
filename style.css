@@ -3,3 +3,8 @@ body::before {
     content: '';
     height: 90px
 }
+
+hr.page_header {
+    width:25%; 
+    margin:auto;
+}
