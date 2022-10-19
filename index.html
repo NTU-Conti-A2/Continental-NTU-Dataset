@@ -116,6 +116,7 @@
 
     <!-- Setup -->
     <section id="Setup" class="p-5">
+        <!-- sensor setup -->
         <div class="container">
             <h1 class="text-center">Setup</h1>
             <hr class="page_header">
@@ -143,14 +144,14 @@
         </div>
 
         <!-- dataset structure -->
-        <div class="container">
-            <h2 class="pt-5 pb-3">Dataset Structure</h2>
+        <div class="container py-3">
+            <h2 class="pb-3">Dataset Structure</h2>
             <p class="pb-3">
-                One of the advantages of using this dataset is that it resemble the dataset structure from two popular public datasets (KITTI and Nuscene datasets).<br>
+                One of the advantages of using this dataset is that it resemble the dataset structure from two popular public datasets (<a href="https://www.cvlibs.net/datasets/kitti/">KITTI </a> and <a href="https://www.nuscenes.org/">Nuscene</a> datasets).<br>
                 The raw data files are named sequentially, with their corresponding timestamp located in <i>timestamp.txt</i><br>
                 As for data types that are neither image or pointcloud, they are stored as <i>.json</i> files with information that are from ROS <i>std_msgs/sensor_msgs</i>.
             </p>
-            <div class="row g-3 pb-3">
+            <div class="row g-3">
                 <div class="col-lg-4 text-center align-items-center">
                     <h4 class="pt-3 pb-3">Folder Structure</h4>
                     <img src="img/setup/raw_data_structure.png" alt="" class="img-fluid">
@@ -213,9 +214,32 @@
                     </div>
                 </div>
             </div>
-            <p>Alternatively, there are also <i>.json</i> files located in the <i>database</i> folder which contains information that links the raw data together</p>
-            <p>insert schema image...</p>
-            <p>insert schema information...</p>
+            
+        </div>
+
+        <!-- dataset schema -->
+        <div class="container py-3">
+            <h2 class="pb-3">Dataset Schema</h2>
+            <p>Alternatively, there are also <i>.json</i> files, that were exported out from <a href="https://www.mongodb.com/">MongoDB</a>, located in the <i>database</i> folder which contains information that links the raw data together.</p>
+            
+            <h4 class="p-2">Raw Data Schema</h4>
+            <img src="img/setup/dataset_schema.png" alt="" class="img-fluid">
+        
+            <!-- schema explanation -->
+            <div class="py-3">
+                <h5 class="text-secondary py-2">log</h5>
+                <p>Information about the log from which the data was recorded</p>
+                <div class="bg-light p-3">
+                <pre>log &lcub;
+    &OpenCurlyDoubleQuote;log_name&CloseCurlyDoubleQuote;&colon;                    &lt;str&gt; &ndash; &ndash; Name of the log recorded&period;
+    &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
+    &OpenCurlyDoubleQuote;date&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Date&colon; &lpar;DD&mdash;MM&mdash;YYYY&rpar;&period;
+    &OpenCurlyDoubleQuote;location&CloseCurlyDoubleQuote;&colon;                    &lt;str&gt; &ndash; &ndash; Acronym of the recorded route&period;
+    &OpenCurlyDoubleQuote;time_of_day&CloseCurlyDoubleQuote;&colon;                 &lt;str&gt; &ndash; &ndash; Environment lightning of which the run was recorded &lpar;day&comma; evening&comma; night&rpar;&period;
+    &OpenCurlyDoubleQuote;category&CloseCurlyDoubleQuote;&colon;                    &lt;str&gt; &ndash; &ndash; The type of environment of which the run was recorded&period;
+&rcub;</pre>
+                </div>
+            </div>
         </div>
 
     </section>
