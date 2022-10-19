@@ -115,9 +115,74 @@
         <!-- dataset structure -->
         <div class="container">
             <h2 class="pt-5 pb-3">Dataset Structure</h2>
-            <p>One of the advantages of using this dataset is that it resemble the dataset structure from two popular public datasets (KITTI and Nuscene datasets).</p>
-            <p>The raw data files are named sequentially, with their corresponding timestamp located in <i>timestamp.txt</i>.</p>
-            <p>insert folder structure img....</p>
+            <p class="pb-3">
+                One of the advantages of using this dataset is that it resemble the dataset structure from two popular public datasets (KITTI and Nuscene datasets).<br>
+                The raw data files are named sequentially, with their corresponding timestamp located in <i>timestamp.txt</i><br>
+                As for data types that are neither image or pointcloud, they are stored as <i>.json</i> files with information that are from ROS <i>std_msgs/sensor_msgs</i>.
+            </p>
+            <div class="row g-3 pb-3">
+                <div class="col-lg-4 text-center align-items-center">
+                    <h4 class="pt-3 pb-3">Folder Structure</h4>
+                    <img src="img/raw_data_structure.png" alt="" class="img-fluid">
+                </div>
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <caption>(fl/fr/rear) refers to (front left, front right, rear) respectively</caption>
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Topic Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">File Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>tf_static</td>
+                                <td>Transform information from base_link to target frame</td>
+                                <td><i>.json</i></td>
+                                </tr>
+                                <tr>
+                                <td>fix</td>
+                                <td>GPS information in the form of <a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/NavSatFix.html"><i>NavSatFix</i></a> msg type</td>
+                                <td><i>.json</i></td>
+                                </tr>
+                                <tr>
+                                <td>(fl/fr/rear)_cam_color_camera_info</td>
+                                <td>Intrinsic parameters of the camera in the form of <a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/CameraInfo.html"><i>CameraInfo</i></a> msg type</td>
+                                <td><i>.json</i></td>
+                                </tr>
+                                <tr>
+                                <td>(fl/fr/rear)_cam_color_compressed</td>
+                                <td>RGB image output from the camera</td>
+                                <td><i>.jpg</i></td>
+                                </tr>
+                                <tr>
+                                <td>(fl/fr/rear)_cam_aligned_depth_to_color_image_raw</td>
+                                <td>Depth image that is aligned to the RGB image</td>
+                                <td><i>.png</i></td>
+                                </tr>
+                                <tr>
+                                <td>imu_data</td>
+                                <td>Inertial measurement output in the form of <a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Imu.html"><i>Imu</i></a> msg type</td>
+                                <td><i>.json</i></td>
+                                </tr>
+                                <tr>
+                                <td>localization_core_map_localization_data_base_pose</td>
+                                <td>Localization of the base_link in a pre-built map in the form of <a href="http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html"><i>Odometry</i></a> msg type</td>
+                                <td><i>.json</i></td>
+                                </tr>
+                                <tr>
+                                <td>rslidar_points</td>
+                                <td>Pointcloud output from the LiDAR sensor</td>
+                                <td><i>.pcd</i></td>
+                                </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <p>Alternatively, there are also <i>.json</i> files located in the <i>database</i> folder which contains information that links the raw data together</p>
             <p>insert schema image...</p>
             <p>insert schema information...</p>
@@ -136,63 +201,67 @@
                 </div>
                 <div class="col">
                     <h3 class="pb-2">Sports & Recreational Centre</h3>
-                    <table class="table">
-                        <thead>
-                            <tr class="table-light">
-                            <th scope="col">Log_name</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td>src_ccw_day_210622</td>
-                            <td>21/06/2022</td>
-                            <td>Residential</td>
-                            <td>Day</td>
-                            <td><a href="">download</a></td>
-                            </tr>
-                            <tr>
-                            <td>src_ccw_day_210622</td>
-                            <td>21/06/2022</td>
-                            <td>Residential</td>
-                            <td>Day</td>
-                            <td><a href="">download</a></td>
-                            </tr>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>src_ccw_day_210622</td>
+                                <td>21/06/2022</td>
+                                <td>Residential</td>
+                                <td>Day</td>
+                                <td><a href="">download</a></td>
+                                </tr>
+                                <tr>
+                                <td>src_ccw_day_210622</td>
+                                <td>21/06/2022</td>
+                                <td>Residential</td>
+                                <td>Day</td>
+                                <td><a href="">download</a></td>
+                                </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <h3 class="pb-2 pt-2">Nanyang Link</h3>
-                    <table class="table">
-                        <thead>
-                            <tr class="table-light">
-                            <th scope="col">Log_name</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td>nanyanglink_ccw_day_210622</td>
-                            <td>21/06/2022</td>
-                            <td>Residential</td>
-                            <td>Day</td>
-                            <td><a href="">download</a></td>
-                            </tr>
-                            <tr>
-                            <td>nanyanglink_ccw_day_210622</td>
-                            <td>21/06/2022</td>
-                            <td>Residential</td>
-                            <td>Day</td>
-                            <td><a href="">download</a></td>
-                            </tr>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>nanyanglink_ccw_day_210622</td>
+                                <td>21/06/2022</td>
+                                <td>Residential</td>
+                                <td>Day</td>
+                                <td><a href="">download</a></td>
+                                </tr>
+                                <tr>
+                                <td>nanyanglink_ccw_day_210622</td>
+                                <td>21/06/2022</td>
+                                <td>Residential</td>
+                                <td>Day</td>
+                                <td><a href="">download</a></td>
+                                </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
