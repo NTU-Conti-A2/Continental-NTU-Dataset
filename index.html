@@ -231,24 +231,21 @@
                 <div class="py-2">
                     <h5 class="text-secondary py-1">log</h5>
                     <p>Information about the log from which the data was recorded</p>
-                    <div class="bg-light p-3">
-                        <pre>log &lcub;
+                        <pre class="bg-light p-3"><code>log &lcub;
     &OpenCurlyDoubleQuote;log_name&CloseCurlyDoubleQuote;&colon;                    &lt;str&gt; &ndash; &ndash; Name of the log recorded&period;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
     &OpenCurlyDoubleQuote;date&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Date&colon; &lpar;DD&mdash;MM&mdash;YYYY&rpar;&period;
     &OpenCurlyDoubleQuote;location&CloseCurlyDoubleQuote;&colon;                    &lt;str&gt; &ndash; &ndash; Acronym of the recorded route&period;
     &OpenCurlyDoubleQuote;time_of_day&CloseCurlyDoubleQuote;&colon;                 &lt;str&gt; &ndash; &ndash; Environment lightning of which the run was recorded &lpar;day&comma; evening&comma; night&rpar;&period;
     &OpenCurlyDoubleQuote;category&CloseCurlyDoubleQuote;&colon;                    &lt;str&gt; &ndash; &ndash; The type of environment of which the run was recorded&period;
-&rcub;</pre>
-                    </div>
+&rcub;</code></pre>
                 </div>
 
                 <!-- sensor_info -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">sensor_info</h5>
                     <p>Information about sensor used (LiDAR/camera/imu). All extrinsic parameters are given with respect to the base_link.</p>
-                    <div class="bg-light p-3">
-                        <pre>sensor_info &lcub;
+                        <pre class="bg-light p-3"><code>sensor_info &lcub;
     &OpenCurlyDoubleQuote;sensor_name&CloseCurlyDoubleQuote;&colon;                 &lt;str&gt; &ndash; &ndash; Given name of the sensor&period;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;sensor_info_token&CloseCurlyDoubleQuote;&colon;           &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
@@ -257,16 +254,14 @@
     &OpenCurlyDoubleQuote;camera_intrinsic&CloseCurlyDoubleQuote;&colon;            &lt;float&gt; &lsqb;9&rsqb; &ndash; &ndash; 3 x 3 Intrinsic parameters of camera as 1&hyphen;D list&period; Empty for non&hyphen;camera&period;
     &OpenCurlyDoubleQuote;camera_distortion&CloseCurlyDoubleQuote;&colon;           &lt;float&gt; &lsqb;5&rsqb; &ndash; &ndash; Camera distortion parameters &lpar;k1, k2, t1, t2, k3&rpar;&period; Empty for non&hyphen;camera&period;
     &OpenCurlyDoubleQuote;camera_projection&CloseCurlyDoubleQuote;&colon;           &lt;float&gt; &lsqb;12&rsqb; &ndash; &ndash; 3 x 4 Camera projection matrix&period; Empty for non&hyphen;camera&period;
-&rcub;</pre>
-                    </div>
+&rcub;</code></pre>
                 </div>
 
                 <!-- gps_data -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">gps_data</h5>
                     <p>GPS data extracted from the GPS onboard.</p>
-                    <div class="bg-light p-3">
-                        <pre>gps_data &lcub;
+                        <pre class="bg-light p-3"><code>gps_data &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;gps_data_token&CloseCurlyDoubleQuote;&colon;              &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
     &OpenCurlyDoubleQuote;timestamp&CloseCurlyDoubleQuote;&colon;                   &lt;float&gt; &ndash; &ndash; Unix time stamp in seconds&period;
@@ -278,16 +273,14 @@
     &OpenCurlyDoubleQuote;position_covariance&CloseCurlyDoubleQuote;&colon;         &lt;float&gt; &ndash; &ndash; Position covariance &lsqb;m&Hat;2&rsqb; defined relative to a tangential plane through the reported position&period; The components are East&comma; North&comma; and Up &lpar;ENU&rpar;&comma; in row&hyphen;major order&period;
     &OpenCurlyDoubleQuote;next&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Foreign key pointing to the next gps reading&period; Empty if end of sequence&period;
     &OpenCurlyDoubleQuote;prev&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Foreign key pointing to the previous gps reading&period; Empty if start of sequence&period;
-&rcub;</pre>
-                    </div>
+&rcub;</code></pre>
                 </div>
 
                 <!-- odom -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">odom</h5>
                     <p>Odometry of the base_link achieved using LiDAR-based localization on a pre-built map.</p>
-                    <div class="bg-light p-3">
-                        <pre>odom &lcub;
+                        <pre class="bg-light p-3"><code>odom &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;odom_token&CloseCurlyDoubleQuote;&colon;                  &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
     &OpenCurlyDoubleQuote;timestamp&CloseCurlyDoubleQuote;&colon;                   &lt;float&gt; &ndash; &ndash; Unix time stamp in seconds&period;
@@ -295,16 +288,14 @@
     &OpenCurlyDoubleQuote;rotation&CloseCurlyDoubleQuote;&colon;                    &lt;float&gt; &ndash; &ndash; Coordinate system orientation as quaternion&colon; x&comma; y&comma; z&comma; w&period;
     &OpenCurlyDoubleQuote;next&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Foreign key pointing to the next odom reading&period; Empty if end of sequence&period;
     &OpenCurlyDoubleQuote;prev&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Foreign key pointing to the previous odom reading&period; Empty if start of sequence&period;
-&rcub;</pre>
-                    </div>
+&rcub;</code></pre>
                 </div>
 
                 <!-- imu_data -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">imu_data</h5>
                     <p>Odometry of the base_link achieved using LiDAR-based localization on a pre-built map.</p>
-                    <div class="bg-light p-3">
-                        <pre>odom &lcub;
+                        <pre class="bg-light p-3"><code>odom &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                           &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;sensor_info_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to sensor_info category&period;
     &OpenCurlyDoubleQuote;imu_data_token&CloseCurlyDoubleQuote;&colon;                      &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
@@ -317,16 +308,14 @@
     &OpenCurlyDoubleQuote;linear_acceleration_covariance&CloseCurlyDoubleQuote;&colon;      &lt;float&gt; &lsqb;9&rsqb; &ndash; &ndash; 3 x 3 Linear Acceleration covariance matrix as 1&hyphen;D List about x&comma; y&comma; z axes&period;
     &OpenCurlyDoubleQuote;next&CloseCurlyDoubleQuote;&colon;                                &lt;str&gt; &ndash; &ndash; Foreign key pointing to the next imu reading&period; Empty if end of sequence&period;
     &OpenCurlyDoubleQuote;prev&CloseCurlyDoubleQuote;&colon;                                &lt;str&gt; &ndash; &ndash; Foreign key pointing to the previous imu reading&period; Empty if start of sequence&period;
-&rcub;</pre>
-                    </div>
+&rcub;</code></pre>
                 </div>
 
                 <!-- sensor_data -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">sensor_data</h5>
                     <p>Information on sensor data, either image for camera or pointcloud for LiDAR.</p>
-                    <div class="bg-light p-3">
-                        <pre>sensor_data &lcub;
+                        <pre class="bg-light p-3"><code>sensor_data &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;sensor_info_token&CloseCurlyDoubleQuote;&colon;           &lt;str&gt; &ndash; &ndash; Foreign key pointing to sensor_info category&period;
     &OpenCurlyDoubleQuote;sensor_data_token&CloseCurlyDoubleQuote;&colon;           &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
@@ -337,9 +326,9 @@
     &OpenCurlyDoubleQuote;width&CloseCurlyDoubleQuote;&colon;                       &lt;int&gt; &ndash; &ndash; Image width in pixels&period; Empty for non&hyphen;image file&period;
     &OpenCurlyDoubleQuote;next&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Foreign key pointing to the next reading from the same sensor&period; Empty if end of sequence&period;
     &OpenCurlyDoubleQuote;prev&CloseCurlyDoubleQuote;&colon;                        &lt;str&gt; &ndash; &ndash; Foreign key pointing to the previous reading from the same sensor&period; Empty if start of sequence&period;
-&rcub;</pre>
-                    </div>
+&rcub;</code></pre>
                 </div>
+
             </div>
         </div>
     </section>
