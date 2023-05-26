@@ -208,7 +208,7 @@
             <div class="row g-3">
                 <div class="col-lg-4 text-center align-items-center">
                     <h4 class="pt-3 pb-3">Folder Structure</h4>
-                    <img src="img/setup/raw_data_structure.png" alt="" class="img-fluid">
+                    <img src="img/setup/data-folder-example.png" alt="" class="img-fluid">
                 </div>
                 <div class="col">
                     <div class="table-responsive">
@@ -228,8 +228,8 @@
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
-                                <td>fix</td>
-                                <td>GPS information in the form of <a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/NavSatFix.html"><i>NavSatFix</i></a> msg type</td>
+                                <td>fixposition_navsatfix</td>
+                                <td>GPS information output by VRTK2 in the form of <a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/NavSatFix.html"><i>NavSatFix</i></a> msg type</td>
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
@@ -253,8 +253,8 @@
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
-                                <td>localization_core_map_localization_data_base_pose</td>
-                                <td>Localization of the base_link in a pre-built map in the form of <a href="http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html"><i>Odometry</i></a> msg type</td>
+                                <td>fixposition_odometry</td>
+                                <td>Odometry of the FP_VRTK link with Earth's center as origin in the form of <a href="http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html"><i>Odometry</i></a> msg type</td>
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
@@ -276,8 +276,16 @@
             <h2 class="pb-3">Dataset Schema</h2>
             <p>Alternatively, there are also <i>.json</i> files, that were exported out from <a href="https://www.mongodb.com/">MongoDB</a>, located in the <i>database</i> folder which contains information that links the raw data together.</p>
             
-            <h4 class="p-2">Raw Data Schema</h4>
-            <img src="img/setup/dataset_schema.png" alt="" class="img-fluid">
+            <div class="row g-5 pb-3">
+                <div class="col-lg-8">
+                    <h4 class="p-3 text-center">Raw Data Schema</h4>
+                    <img src="img/setup/dataset_schema.png" alt="" class="img-fluid">
+                </div>
+                <div class="col">
+                    <h4 class="p-3 text-center">Folder Structure</h4>
+                    <img src="img/setup/directory_tree_database.png" alt="" class="img-fluid" style="width: 300px; height: auto;">
+                </div>
+            </div>
         
             <!-- schema explanation -->
             <div class="py-3">
@@ -314,7 +322,7 @@
                 <!-- gps_data -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">gps_data</h5>
-                    <p>GPS data extracted from the GPS onboard.</p>
+                    <p>Localization output from VRTK2 in latitude, longitude and altitude format.</p>
                         <pre class="bg-light p-3"><code>gps_data &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;gps_data_token&CloseCurlyDoubleQuote;&colon;              &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
@@ -333,7 +341,7 @@
                 <!-- odom -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">odom</h5>
-                    <p>Odometry of the base_link achieved using LiDAR-based localization on a pre-built map.</p>
+                    <p>Odometry of the FP_VRTK link with Earth's center as origin.</p>
                         <pre class="bg-light p-3"><code>odom &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;odom_token&CloseCurlyDoubleQuote;&colon;                  &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
