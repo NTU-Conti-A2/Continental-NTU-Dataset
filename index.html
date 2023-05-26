@@ -208,7 +208,7 @@
             <div class="row g-3">
                 <div class="col-lg-4 text-center align-items-center">
                     <h4 class="pt-3 pb-3">Folder Structure</h4>
-                    <img src="img/setup/raw_data_structure.png" alt="" class="img-fluid">
+                    <img src="img/setup/data-folder-example.png" alt="" class="img-fluid">
                 </div>
                 <div class="col">
                     <div class="table-responsive">
@@ -228,8 +228,8 @@
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
-                                <td>fix</td>
-                                <td>GPS information in the form of <a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/NavSatFix.html"><i>NavSatFix</i></a> msg type</td>
+                                <td>fixposition_navsatfix</td>
+                                <td>GPS information output by VRTK2 in the form of <a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/NavSatFix.html"><i>NavSatFix</i></a> msg type</td>
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
@@ -253,8 +253,8 @@
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
-                                <td>localization_core_map_localization_data_base_pose</td>
-                                <td>Localization of the base_link in a pre-built map in the form of <a href="http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html"><i>Odometry</i></a> msg type</td>
+                                <td>fixposition_odometry</td>
+                                <td>Odometry of the FP_VRTK link with Earth's center as origin in the form of <a href="http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html"><i>Odometry</i></a> msg type</td>
                                 <td><i>.json</i></td>
                                 </tr>
                                 <tr>
@@ -276,8 +276,16 @@
             <h2 class="pb-3">Dataset Schema</h2>
             <p>Alternatively, there are also <i>.json</i> files, that were exported out from <a href="https://www.mongodb.com/">MongoDB</a>, located in the <i>database</i> folder which contains information that links the raw data together.</p>
             
-            <h4 class="p-2">Raw Data Schema</h4>
-            <img src="img/setup/dataset_schema.png" alt="" class="img-fluid">
+            <div class="row g-5 pb-3">
+                <div class="col-lg-8">
+                    <h4 class="p-3 text-center">Raw Data Schema</h4>
+                    <img src="img/setup/dataset_schema.png" alt="" class="img-fluid">
+                </div>
+                <div class="col">
+                    <h4 class="p-3 text-center">Folder Structure</h4>
+                    <img src="img/setup/directory_tree_database.png" alt="" class="img-fluid" style="width: 300px; height: auto;">
+                </div>
+            </div>
         
             <!-- schema explanation -->
             <div class="py-3">
@@ -314,7 +322,7 @@
                 <!-- gps_data -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">gps_data</h5>
-                    <p>GPS data extracted from the GPS onboard.</p>
+                    <p>Localization output from VRTK2 in latitude, longitude and altitude format.</p>
                         <pre class="bg-light p-3"><code>gps_data &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;gps_data_token&CloseCurlyDoubleQuote;&colon;              &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
@@ -333,7 +341,7 @@
                 <!-- odom -->
                 <div class="py-2">
                     <h5 class="text-secondary py-1">odom</h5>
-                    <p>Odometry of the base_link achieved using LiDAR-based localization on a pre-built map.</p>
+                    <p>Odometry of the FP_VRTK link with Earth's center as origin.</p>
                         <pre class="bg-light p-3"><code>odom &lcub;
     &OpenCurlyDoubleQuote;log_token&CloseCurlyDoubleQuote;&colon;                   &lt;str&gt; &ndash; &ndash; Foreign key pointing to log category&period;
     &OpenCurlyDoubleQuote;odom_token&CloseCurlyDoubleQuote;&colon;                  &lt;str&gt; &ndash; &ndash; Unique record identifier&period;
@@ -396,8 +404,9 @@
                 <div class="col-xl-5 d-flex justify-content-center">
                     <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1-9eQRAH1KEeqJuuSM41bVoe9K6ST7ko&ehbc=2E312F" width="600" height="600"></iframe>
                 </div>
+
                 <div class="col">
-                    <h3 class="pb-2">Sports & Recreational Centre</h3>
+                    <h3 class="pb-2">CanA-RTP</h3>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -406,29 +415,24 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Time</th>
-                                <th scope="col">Link</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                <td>src_ccw_day_210622</td>
-                                <td>21/06/2022</td>
-                                <td>Residential</td>
-                                <td>Day</td>
-                                <td><a href="">download</a></td>
-                                </tr>
-                                <tr>
-                                <td>src_ccw_day_210622</td>
-                                <td>21/06/2022</td>
-                                <td>Residential</td>
-                                <td>Day</td>
-                                <td><a href="">download</a></td>
-                                </tr>
+                                <td>CanA_RTP_130423</td>
+                                <td>13/04/2023</td>
+                                <td>Campus</td>
+                                <td>Lunch</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <h3 class="pb-2 pt-2">Nanyang Link</h3>
+
+                    <h3 class="pb-2 pt-2">Quad-RTP-SBCE</h3>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -437,28 +441,199 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Time</th>
-                                <th scope="col">Link</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                <td>nanyanglink_ccw_day_210622</td>
-                                <td>21/06/2022</td>
-                                <td>Residential</td>
-                                <td>Day</td>
-                                <td><a href="">download</a></td>
-                                </tr>
-                                <tr>
-                                <td>nanyanglink_ccw_day_210622</td>
-                                <td>21/06/2022</td>
-                                <td>Residential</td>
-                                <td>Day</td>
-                                <td><a href="">download</a></td>
-                                </tr>
+                                <td>Quad_RTP_SBCE_19042023</td>
+                                <td>19/04/2023</td>
+                                <td>Campus</td>
+                                <td>Lunch</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <h3 class="pb-2 pt-2">CanB-Hall7-RTP</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>CanB_Hall7_RTP_18042023</td>
+                                <td>18/04/2023</td>
+                                <td>Campus</td>
+                                <td>Lunch</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="pb-2 pt-2">Can1-H4-H5</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>CanB_Hall7_RTP_20042023</td>
+                                <td>20/04/2023</td>
+                                <td>Residential</td>
+                                <td>Lunch</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="pb-2 pt-2">Can2-SRC-NYH-Can9</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>Can2_SRC_NYH_Can9_25042023</td>
+                                <td>20/04/2023</td>
+                                <td>Residential</td>
+                                <td>Lunch</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="pb-2 pt-2">Can9-NH</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>Can9_NH_25042023</td>
+                                <td>25/04/2023</td>
+                                <td>Residential</td>
+                                <td>Lunch</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="pb-2 pt-2">NH-GH1-GH2-CRS</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>NH_GH1_GH2_CRS_25042023</td>
+                                <td>25/04/2023</td>
+                                <td>Residential</td>
+                                <td>Dinner</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="pb-2 pt-2">CRS-H14-H13</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Log_name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Download</th>
+                                <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>CRS_H14_H13_25042023</td>
+                                <td>25/04/2023</td>
+                                <td>Residential</td>
+                                <td>Dinner</td>
+                                <td><a href="">Raw Data</a></td>
+                                <td><a href="">Rosbag</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="pb-2 pt-2">Database Files</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light">
+                                <th scope="col">Dataset Version</th>
+                                <th scope="col">Last Updated</th>
+                                <th scope="col">Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>Version 1 (v.1)</td>
+                                <td>25/04/2023</td>
+                                <td><a href="">Link</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>

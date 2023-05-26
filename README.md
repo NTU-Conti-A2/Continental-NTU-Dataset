@@ -23,11 +23,11 @@ The data is collected from planned routes within Nanyang Technological Universit
 *Note that the LiDAR sensor is tilted slightly forward (towards the ground), and the x-axis is slightly off-center.*
 
 <p align="center">
-    <img src="img/setup/sensor_setup_perspective_view.svg" width="35%"/>
-    <img src="img/setup/sensor_setup_top_view.svg" width="50%"/>
+    <img src="img/setup/sensor_setup_perspective_view.png" width="35%"/>
+    <img src="img/setup/sensor_setup_top_view.png" width="50%"/>
 </p>
 <p align="center">
-    <img src="img/setup/static_tf_rviz.jpg" width="50%"/>
+    <img src="img/setup/static_tf_rviz.png" width="50%"/>
 </p>
 
 More information about the sensors will be released ...  
