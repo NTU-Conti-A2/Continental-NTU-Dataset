@@ -35,8 +35,7 @@ More information about the sensors will be released ...
 
 
 ## Downloads
-**Currently, dataset has not been released. (projected 3/2023)**
 
-The dataset will be published in iterations.  
-- v.1 only includes raw data from sensors
-- v.2 includes annotations for images
+[Continental-NTU Dataset](https://ntu-conti-a2.github.io/Continental-NTU-Dataset) 
+
+
